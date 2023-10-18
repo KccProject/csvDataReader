@@ -1,36 +1,12 @@
 import pandas as pd
 
-df = pd.read_csv('data_new.csv')  
+df = pd.read_csv('data_new.csv')
 
-sum_X = df['X'].sum() 
-sum_y1 = df['y1'].sum()
-sum_y2 = df['y2'].sum()
-sum_y3 = df['y3'].sum()
-sum_y4 = df['y4'].sum()
-sum_y5 = df['y5'].sum()
-sum_y6 = df['y6'].sum()
-sum_y7 = df['y7'].sum()
-sum_y8 = df['y8'].sum()
-sum_y9 = df['y9'].sum()
-sum_y10 = df['y10'].sum()
-sum_y11 = df['y11'].sum()
-sum_y12 = df['y12'].sum()
-sum_y13 = df['y13'].sum()
+sum_X = df['X'].sum()
+y_values = {f'y{i}': df[f'y{i}'].sum() for i in range(1, 14)}
 
-# average_column = df['X'].mean()
-
-print(f"Sum of Column X : {sum_X}")
-print(f"Sum of Column y1: {sum_y1}")
-print(f"Sum of Column y2: {sum_y2}")
-print(f"Sum of Column y3: {sum_y3}")
-print(f"Sum of Column y4: {sum_y4}")
-print(f"Sum of Column y5: {sum_y5}")
-print(f"Sum of Column y6: {sum_y6}")
-print(f"Sum of Column y7: {sum_y7}")
-print(f"Sum of Column y8: {sum_y8}")
-print(f"Sum of Column y9: {sum_y9}")
-print(f"Sum of Column y10: {sum_y10}")
-print(f"Sum of Column y11: {sum_y11}")
-print(f"Sum of Column y12: {sum_y12}")
-print(f"Sum of Column y13: {sum_y13}")
-# print(f"Average of Column: {average_column}")
+for key, value in y_values.items():
+    if sum_X > value:
+        print(f"X is greater than {key}")
+    else:
+        print(f"{key} is greater than X")
